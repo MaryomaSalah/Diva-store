@@ -1,0 +1,336 @@
+**<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Diva Store</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fffafa;
+            font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .header {
+            background-color: #ffb6c1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            color: #4a4a4a;
+            font-size: 28px;
+        }
+
+        .checkout-container {
+            max-width: 40px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .checkout-container h2 {
+            color: #4a4a4a;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8PX;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12PX;
+            border: 2px solid #ffe4e1;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #ff6b81;
+        }
+
+        .error-message {
+            color: #FF4D4D;
+            font-family: 14PX;
+            margin-top: 5px;
+            display: none;
+
+        }
+
+        .btn-submit {
+
+            background-color: #ff6b81;
+            color: white;
+            border: none;
+            padding: 14px;
+            width: 100%;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+
+        }
+
+        .btn-submit:hover {
+            background-color: #ff4757;
+            transform: translateY(-2px);
+
+
+        }
+
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 20PX;
+            color: #FF6B81;
+            text-align: none;
+            font-weight: bold;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>✨ Diva Store ✨</h1>
+    </div>
+    <div class="checkout-container">
+        <h2>Shopping & Payment Details</h2>
+        <form id="checkoutform">
+            <div class="form-group">
+                <label for="full name">full name</label>
+                <input type="text" id="full name" placeholder="Enter your full name">
+                <div class="error-message" id="nameError">Please enter your name</div>
+
+
+            </div>
+            <div class="form-group">
+                <label for="phoneNimber">Phone Number</label>
+                <input type="tel" id="phoneNimber" placeholder="e.g. 01xxxxxxxxx ">
+                <div class=" error-message" id="phoneNimber">Please enter a valid Egyptian phone number (11 digits)
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="  governorate">Governorate</label>
+                <select id="governorate">
+                    <option value="">Select your governorate</option>
+                    <option value="cairo">Cairo</option>
+                    <option value="giza">Giza</option>
+                    <option value="alexandria">Alexandria</option>
+                    <option value="mansoura">Mansoura</option>
+                </select>
+                <div class="error-message" id="govError">Please select your governorate</div>
+            </div>
+            <div class="form-group">
+                <label for="address">Detailed Address</label>
+                <input type="text" id="address" placeholder="Street name, Building No, Apartment No">
+                <div class="error-message" id="addressError">Please enter your shipping address</div>
+
+            </div>
+            <button type="submit" class="btn-submit">Confirm Order (Cash on Delivery)</button>
+        </form>
+
+        <a href="index.html" class="back-home">← Back to Store</a>
+
+        <script>
+            document.getElementById('checkoutForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const name = document.getElementById('fullName').value.trim();
+                const phone = document.getElementById('phoneNumber').value.trim();
+                const gov = document.getElementById('governorate').value;
+                const address = document.getElementById('address').value.trim();
+                let isValied = true;
+
+                if (name == "") {
+                    document.getElementById('nameErroe').style.display = 'block';
+                    isValied = false;
+                } else {
+                    document.getElementById('nameError').style.display = 'none';
+
+                }
+                const phoneRegex = /^01[0125][0-9]{8}$/;
+                if (!phoneRegex.test(phone)) {
+                    document.getElementById('phoneError').style.display = 'block';
+                    isValied = false;
+                } else {
+                    document.getElementById('phoneError').style.display = 'none';
+
+                }
+                if (gov == "") {
+                    document.getElementById('').style.display = 'block';
+                    isValied = false;
+
+                }
+                else {
+                    document.getElementById('govErroe').style.display = 'none';
+                }
+                if (address == "") {
+                    document.getElementById('addressError').style.display = 'block';
+                    isValied = false;
+
+                }else{
+                    document.getElementById('addressError').style.display ='none';
+
+                }
+                if (isValied){
+                    alert(`🎉 Order Confirmed Successfully!\nThank you ${name}, we will contact you on ${phone} soon.`);
+                window.location.href = "index.html"; 
+                }
+                     });
+    </script>
+    <div id="cart-modal" style="display:none; position:fixed; top:20px; right:20px; background:white; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.2); padding:20px; width:300px; z-index:1000; font-family:'Segoe UI', sans-serif;">
+        <h3 style="margin-top:0; color:#4a4a4a; display:flex; justify-content:space-between;">
+            <span>🛒 Shopping Cart</span>
+            <span style="cursor:pointer; color:#999;" onclick="toggleCart()">X</span>
+        </h3>
+        <div id="cart-items" style="max-height:200px; overflow-y:auto; margin-bottom:15px;">
+            <p style="color:#888; font-size:14px;">Your cart is empty</p>
+        </div>
+        <div style="font-weight:bold; border-top:1px solid #eee; padding-top:10px; margin-bottom:15px; color:#4a4a4a;">
+            Total: <span id="cart-total" style="color:#ff6b81;">0 LE</span>
+        </div>
+        <button onclick="goToCheckout()" style="background:#ff6b81; color:white; border:none; padding:10px; width:100%; border-radius:8px; font-weight:bold; cursor:pointer; transition:0.3s;">Proceed to Checkout</button>
+    </div>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        document.querySelectorAll('.proc').forEach(productCard => {
+            const button = productCard.querySelector('.btn-buy');
+            const name = productCard.querySelector('h3').innerText;
+            const price = parseInt(productCard.querySelector('.price').innerText);
+
+            button.addEventListener('click', () => {
+                addToCart(name, price);
+            });
+        });
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            total += price;
+            updateCartUI();
+        }
+
+        function toggleCart() {
+            const cartModal = document.getElementById('cart-modal');
+            cartModal.style.display = cartModal.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function updateCartUI() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            
+            document.getElementById('cart-modal').style.display = 'block';
+            
+            if(cart.length === 0) {
+                cartItems.innerHTML = '<p style="color:#888; font-size:14px;">Your cart is empty</p>';
+            } else {
+                cartItems.innerHTML = cart.map(item => `
+                    <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:14px; color:#4a4a4a;">
+                        <span>${item.name}</span>
+                        <span style="font-weight:bold; color:#ff6b81;">${item.price} LE</span>
+                    </div>
+                `).join('');
+            }
+            cartTotal.innerText = total + ' LE';
+        }
+
+        function goToCheckout() {
+            if(cart.length === 0) {
+                alert("Your cart is empty! Please add products first.");
+                return;
+            }
+            window.location.href = "checkout.html";
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div >
+
+
+
+
+
+
+
+    </div >
+</body >
+
+</html >
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+

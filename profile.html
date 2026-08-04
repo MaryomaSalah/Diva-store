@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Diva Store</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fffafa;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .jj {
+            background-color: #ffb6c1;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #4a4a4a;
+            margin-bottom: 10px;
+        }
+
+        nav a {
+            color: #4a4a4a;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: white;
+            background-color: #ff6b81;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .profile-container {
+            max-width: 500px;
+            margin: 5px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgb(0, 0, 0, 0, 08);
+            text-align: center;
+            margin-top: 40px;
+
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 20px;
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffb6c1;
+            background-color: #ffe4e1;
+            /* width: 120px; height: 120px; background-color: #ffe4e1; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 50px; color: #ff6b81; margin: 0 auto 20px ; border: 4px solid #ffb6c1; */
+        }
+
+        .upload-btn {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: #ff6b81;
+            color: white;
+            border: none;
+            width: 35PX;
+            height: 35PX;
+            border-radius: 50%;
+            font-size: 18PX;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+
+        }
+        .upload-btn:hover {
+            background-color: #ff4757;
+            transform: scale(1.1);
+        }
+        .profile-container h2 {
+            color: #4a4a4a;
+            margin-bottom: 5px;
+            font-size: 24px;
+        }
+        .profile-container p {
+            color: #777;
+            margin-top: 0;
+            font-weight: 16px;
+            margin-bottom: 25px;
+        }
+        .btn-logout {
+            background-color: #ff4757;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            width: 100%;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgb(255,71,87,0.2 );
+        }
+        .btn-logout:hover {
+            background-color: #ff2a3b;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="jj">
+        <h1>✨ My Diva Profile ✨</h1>
+         <nav>
+            <a href="index.html">Home</a>
+            <a href="makeup.html">Mke Up</a>
+            <a href="accessories.html">Accessories</a>
+            <a href="checkout.html">checkout</a>
+            <a href="signup.html">Sign Up></a>
+            <a href="profile.html">Profile</a>
+
+         
+        </nav>
+    </div>
+     
+    <div class="profile-container">
+        <div class="avatar-wrapper">
+            <img src="data:image/jpeg;base64,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" id="profileImage" class="avatar-img" alt="Avatar">
+            <label for="imageUpload" class="upload-btn">📷</label>
+            <input type="file" id="imafeUpload" accept="image/*" style="display: none;">
+
+        </div>
+        <h2 id="ProfileName">Guest User</h2>
+        <p id="profileEmail">guest@divastore.com</p>
+        <button class="btn-logout" onclick="logout()">Log Out</button>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded' , () =>  {
+            const saveName = localStorage.getItem ('diva_user_name');
+            const savedEmail = localStorage.get('diva_user_avatar');
+            if (save && savedEmail) {
+                document.getElementById('profillName') .innerText = savedName;
+                document.getElementById ('profileEmail').innerText = savedEmail;
+
+            }
+        });
+        document.getElementById('imageUplod').addEventListener('change' , function (e) {
+            const file = e.terget.files[0];
+            if (file ) {
+                const reader =new FileReader ();
+                reader.onload = function(event) {
+                    const base64Image = event.terget.result;
+                    document.getElementById('profileImage').src = base64Image;
+
+                    localStorage.setItem(diva_user_ava , base64Image );
+
+                }
+                reader.readAsDataURL(file);
+
+                }
+
+            });
+
+         function logout () {
+            localStorage.clear();
+
+         }
+    </script>
+
+
+</body>
+
+</html>
