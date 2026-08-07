@@ -11,7 +11,7 @@ Diva Store is a modern and responsive e-commerce web application created for bea
   The project was built from scratch using clean structural practices. The tech stack includes HTML5 for constructing the layout and semantic web elements, CSS3 for responsive styles and custom layouts, alongside JavaScript (JS) to add dynamic features and interactivity to the store.
 ## How To Run The Project Locally
 "To look at the project files locally on your computer, follow these simple steps:
-Clone the repository to your device: git clone https://github.com
+Clone the repository to your device: git clone https://github.com/MaryomaSalah/Diva-store.git
 Open the main directory: cd Diva-store
 Launch the web application: Open the index.html file inside your favorite web browser to preview the live design."
 

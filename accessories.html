@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accessories Collection - Diva Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
         body {
             margin: 0;
@@ -159,6 +161,39 @@
             color: #ff6b81;
             font-size: 20px;
             font-weight: bold;
+        }
+        @media (max-width:768px){
+            .jj,header {
+                padding: 15px !important;
+            }
+            nac {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            nav a{
+                display:block;
+                width: 80%;
+                text-align: center;
+                margin: 5px 0 !important;
+                font-size: 15px;
+            }
+            .products-container,.products-grid {
+                display: grid;
+                grid-template-columns: 1fr !important;
+                gap: 20PX !important;
+                padding: 10PX !important;
+            }
+            .products-card, .item {
+                width: 100% !important;
+                box-sizing: border-box;
+                margin: 0 auto !important;
+            }
+            footer {
+                padding: 20px 10px !important;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
