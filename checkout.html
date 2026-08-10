@@ -470,15 +470,13 @@
                     return;
                 }
                 window.location.href = "checkout.html";
-            }
-            document.querySelector('form').addEventListener('submit', function (e) {
-                e.preventDefault();
+            }document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault(); 
+    
+    const airtableFormUrl = "https://airtable.com/appwDeKzTPE21Fk1i/pagXVHzcQviHLJGzh/form";
+    window.open(airtableFormUrl, '_blank');
+});
 
-                const generatedId = '#' + Math.floor(100000 + Math.random() * 900000);
-                document.getElementById('diva-dynamic-id').innerText = generatedId;
-
-                document.getElementById('divaOrderModal').style.setProperty('display', 'flex', 'important');
-            });
 
             function closeDivaModal() {
                 window.location.href = 'index.html';
