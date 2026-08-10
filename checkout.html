@@ -1,11 +1,12 @@
-**<!DOCTYPE html>
+**
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - Diva Store</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
         body {
@@ -110,42 +111,205 @@
             font-weight: bold;
 
         }
-        @media (max-width:768px){
-            .jj,.header{
+
+        @media (max-width:768px) {
+
+            .jj,
+            .header {
                 padding: 15px !important;
             }
+
             nav {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 gap: 10px;
             }
-            nav a {
-                display: block;
-                width: 80%;
-                text-align: center;
-                margin: 5px 0 !important;
-                font-size: 15px;
-            }
-            .products-container, .products-grid, .grid {
+        }
+
+        nav a {
+            display: block;
+            width: 80%;
+            text-align: center;
+            margin: 5px 0 !important;
+            font-size: 15px;
+        }
+
+        .products-container,
+        .products-grid,
+        .grid {
 
             display: grid;
             grid-template-columns: 1fr !important;
             gap: 20px !important;
             padding: 10px !important;
-            
+
+        }
+
+        .product-crad,
+        .item {
+            width: 100% !important;
+            box-sizing: border-box;
+            margin: 0 auto !important;
+        }
+
+        footer {
+            padding: 20px 10px !important;
+            font-size: 14px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .success-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .modal-content h2 {
+            color: #ff7597;
+            margin-bottom: 10px;
+        }
+
+        .order-number {
+            background-color: #fff0f3;
+            padding: 8px;
+            border-radius: 8px;
+            display: inline-block;
+            font-weight: bold;
+            color: #555;
+            margin: 15px 0;
+        }
+
+        .close-btn {
+            background-color: #ff7597;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.2s;
+            font-weight: bold;
+        }
+
+        .close-btn:hover {
+            background-color: #e05375;
+        }
+
+        @keyframes fadeIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
             }
-            .product-crad, .item {
-                width: 100% !important;
-                box-sizing: border-box;
-                margin: 0 auto !important;
-            }
-            footer {
-                padding: 20px 10px
-                !important;
-                font-size: 14px;
+
+            to {
+                transform: scale(1);
+                opacity: 1;
             }
         }
+
+        .diva-popup-modal {
+            display: none !important;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .diva-popup-content {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            animation: popEffect 0.3s ease-in-out;
+        }
+
+        .diva-popup-icon {
+            font-size: 55px;
+            margin-bottom: 12px;
+        }
+
+        .diva-popup-content h2 {
+            color: #ff7597;
+            margin-bottom: 8px;
+            font-size: 24px;
+        }
+
+        .diva-popup-content p {
+            color: #333;
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .diva-order-id-box {
+            background-color: #fff0f3;
+            padding: 10px;
+            border-radius: 8px;
+            display: inline-block;
+            font-weight: bold;
+            color: #e05375;
+            margin: 15px 0;
+
+            .diva-popup-btn {
+                background-color: #ff7597;
+                color: white;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 25px;
+                font-size: 16px;
+                cursor: pointer;
+                width: 100%;
+                font-weight: bold;
+                transition: background 0.2s ease-in-out;
+            }
+
+            .diva-popup-btn:hover {
+                background-color: #e05375;
+            }
+
+            @keyframes popEffect {
+                from {
+                    transform: scale(0.85);
+                    opacity: 0;
+                }
+
+                to {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
     </style>
 </head>
 
@@ -228,146 +392,108 @@
                     document.getElementById('addressError').style.display = 'block';
                     isValied = false;
 
-                }else{
-                    document.getElementById('addressError').style.display ='none';
+                } else {
+                    document.getElementById('addressError').style.display = 'none';
 
                 }
-                if (isValied){
+                if (isValied) {
                     alert(`🎉 Order Confirmed Successfully!\nThank you ${name}, we will contact you on ${phone} soon.`);
-                window.location.href = "index.html"; 
+                    window.location.href = "index.html";
                 }
-                     });
-    </script>
-    <div id="cart-modal" style="display:none; position:fixed; top:20px; right:20px; background:white; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.2); padding:20px; width:300px; z-index:1000; font-family:'Segoe UI', sans-serif;">
-        <h3 style="margin-top:0; color:#4a4a4a; display:flex; justify-content:space-between;">
-            <span>🛒 Shopping Cart</span>
-            <span style="cursor:pointer; color:#999;" onclick="toggleCart()">X</span>
-        </h3>
-        <div id="cart-items" style="max-height:200px; overflow-y:auto; margin-bottom:15px;">
-            <p style="color:#888; font-size:14px;">Your cart is empty</p>
-        </div>
-        <div style="font-weight:bold; border-top:1px solid #eee; padding-top:10px; margin-bottom:15px; color:#4a4a4a;">
-            Total: <span id="cart-total" style="color:#ff6b81;">0 LE</span>
-        </div>
-        <button onclick="goToCheckout()" style="background:#ff6b81; color:white; border:none; padding:10px; width:100%; border-radius:8px; font-weight:bold; cursor:pointer; transition:0.3s;">Proceed to Checkout</button>
-    </div>
-
-    <script>
-        let cart = [];
-        let total = 0;
-
-        document.querySelectorAll('.proc').forEach(productCard => {
-            const button = productCard.querySelector('.btn-buy');
-            const name = productCard.querySelector('h3').innerText;
-            const price = parseInt(productCard.querySelector('.price').innerText);
-
-            button.addEventListener('click', () => {
-                addToCart(name, price);
             });
-        });
+        </script>
+        <div id="cart-modal"
+            style="display:none; position:fixed; top:20px; right:20px; background:white; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.2); padding:20px; width:300px; z-index:1000; font-family:'Segoe UI', sans-serif;">
+            <h3 style="margin-top:0; color:#4a4a4a; display:flex; justify-content:space-between;">
+                <span>🛒 Shopping Cart</span>
+                <span style="cursor:pointer; color:#999;" onclick="toggleCart()">X</span>
+            </h3>
+            <div id="cart-items" style="max-height:200px; overflow-y:auto; margin-bottom:15px;">
+                <p style="color:#888; font-size:14px;">Your cart is empty</p>
+            </div>
+            <div
+                style="font-weight:bold; border-top:1px solid #eee; padding-top:10px; margin-bottom:15px; color:#4a4a4a;">
+                Total: <span id="cart-total" style="color:#ff6b81;">0 LE</span>
+            </div>
+            <button onclick="goToCheckout()"
+                style="background:#ff6b81; color:white; border:none; padding:10px; width:100%; border-radius:8px; font-weight:bold; cursor:pointer; transition:0.3s;">Proceed
+                to Checkout</button>
+        </div>
 
-        function addToCart(name, price) {
-            cart.push({ name, price });
-            total += price;
-            updateCartUI();
-        }
+        <script>
+            let cart = [];
+            let total = 0;
 
-        function toggleCart() {
-            const cartModal = document.getElementById('cart-modal');
-            cartModal.style.display = cartModal.style.display === 'block' ? 'none' : 'block';
-        }
+            document.querySelectorAll('.proc').forEach(productCard => {
+                const button = productCard.querySelector('.btn-buy');
+                const name = productCard.querySelector('h3').innerText;
+                const price = parseInt(productCard.querySelector('.price').innerText);
 
-        function updateCartUI() {
-            const cartItems = document.getElementById('cart-items');
-            const cartTotal = document.getElementById('cart-total');
-            
-            document.getElementById('cart-modal').style.display = 'block';
-            
-            if(cart.length === 0) {
-                cartItems.innerHTML = '<p style="color:#888; font-size:14px;">Your cart is empty</p>';
-            } else {
-                cartItems.innerHTML = cart.map(item => `
+                button.addEventListener('click', () => {
+                    addToCart(name, price);
+                });
+            });
+
+            function addToCart(name, price) {
+                cart.push({ name, price });
+                total += price;
+                updateCartUI();
+            }
+
+            function toggleCart() {
+                const cartModal = document.getElementById('cart-modal');
+                cartModal.style.display = cartModal.style.display === 'block' ? 'none' : 'block';
+            }
+
+            function updateCartUI() {
+                const cartItems = document.getElementById('cart-items');
+                const cartTotal = document.getElementById('cart-total');
+
+                document.getElementById('cart-modal').style.display = 'block';
+
+                if (cart.length === 0) {
+                    cartItems.innerHTML = '<p style="color:#888; font-size:14px;">Your cart is empty</p>';
+                } else {
+                    cartItems.innerHTML = cart.map(item => `
                     <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:14px; color:#4a4a4a;">
                         <span>${item.name}</span>
                         <span style="font-weight:bold; color:#ff6b81;">${item.price} LE</span>
                     </div>
                 `).join('');
+                }
+                cartTotal.innerText = total + ' LE';
             }
-            cartTotal.innerText = total + ' LE';
-        }
 
-        function goToCheckout() {
-            if(cart.length === 0) {
-                alert("Your cart is empty! Please add products first.");
-                return;
+            function goToCheckout() {
+                if (cart.length === 0) {
+                    alert("Your cart is empty! Please add products first.");
+                    return;
+                }
+                window.location.href = "checkout.html";
             }
-            window.location.href = "checkout.html";
-        }
-    </script>
+            document.querySelector('form').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const generatedId = '#' + Math.floor(100000 + Math.random() * 900000);
+                document.getElementById('diva-dynamic-id').innerText = generatedId;
+
+                document.getElementById('divaOrderModal').style.setProperty('display', 'flex', 'important');
+            });
+
+            function closeDivaModal() {
+                window.location.href = 'index.html';
+            }
+        </script>
+        <div id="divaOrderModal" class="diva-popup-modal">
+            <div class="diva-popup-content">
+                <div class="diva-popup-icon">🎉</div>
+                <h2>Order Confirmed!</h2>
+                <p>Thank you for shopping at <strong>Diva Store</strong>.</p>
+                <p class="diva-order-id-box">Order ID: <span id="diva-dynamic-id">#000000</span></p>
+                <button onclick="closeDivaModal()" class="diva-popup-btn">Back to Store</button>
+            </div>
+        </div>
 
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div >
-
-
-
-
-
-
-
-    </div >
-</body >
-
-</html >
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
