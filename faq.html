@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -144,6 +144,149 @@
             answer.style.display = 'block';
             sign.innnerText ='-';
         }
+        }
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diva Store | FAQ</title>
+</head>
+<style>
+    body {
+        background-color: #fafafa;
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .header-section {
+        background-color: #ffb3c1;
+        padding: 30px 20px;
+        text-align: center;
+    }
+    .header-section h1 {
+        color: #4a4a4a;
+        font-size: 36px;
+        margin: 0 0 10px 0;
+        font-weight: bold;
+    }
+    .header-section p {
+        color: #666;
+        font-size: 16px;
+        margin: 0 0 20px 0;
+    }
+    .nav-links {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+    }
+    .nav-links a {
+        color: #4a4a4a;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+        color: #ffffff;
+    }
+    .faq-wrapper {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+    .faq-title {
+        text-align: center;
+        color: #ff7597;
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+    .faq-item {
+        background-color: #ffffff;
+        border: 1px solid #ffe5ec;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        padding: 20px;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+    .faq-item:hover {
+        transform: translateY(-2px);
+    }
+    .faq-question {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+    }
+    .faq-answer {
+        margin-top: 10px;
+        color: #666;
+        font-size: 15px;
+        line-height: 1.6;
+        display: none;
+    }
+    .footer-box {
+        text-align: center;
+        margin-top: 40px;
+    }
+    .back-home {
+        color: #ff7597;
+        text-decoration: none;
+        font-weight: bold;
+    }
+</style>
+<body>
+
+    <div class="header-section">
+        <h1>✨ Diva Store ✨</h1>
+        <p>Your exclusive world for beauty, makeup, and elegant accessories</p>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="makeup.html">Makeup</a>
+            <a href="accessories.html">Accessories</a>
+            <a href="checkout.html">Checkout</a>
+            <a href="signup.html">Sign Up</a>
+            <a href="profile.html">Profile</a>
+            <a href="wishlist.html">Wishlist</a>
+            <a href="faq.html" class="active">FAQ</a>
+        </div>
+    </div>
+
+    <div class="faq-wrapper">
+        <h2 class="faq-title">Frequently Asked Questions</h2>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <p class="faq-question">How long does shipping take? <span>+</span></p>
+            <p class="faq-answer">Shipping usually takes between 3 to 5 business days depending on your location.</p>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <p class="faq-question">Are the makeup products original? <span>+</span></p>
+            <p class="faq-answer">Yes, all products offered at Diva Store are 100% authentic and sourced directly from official brands.</p>
+        </div>
+
+        <div class="footer-box">
+            <a href="index.html" class="back-home">← Back to Shopping</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleFaq(item) {
+            const answer = item.querySelector('.faq-answer');
+            const sign = item.querySelector('.faq-question span');
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+                sign.innerText = '+';
+            } else {
+                answer.style.display = 'block';
+                sign.innerText = '-';
+            }
         }
     </script>
 </body>
