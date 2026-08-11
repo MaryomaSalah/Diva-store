@@ -19,4 +19,10 @@ Launch the web application: Open the index.html file inside your favorite web br
 As a software development student at Iva International School for Applied Technology, this entire project was very easy and straightforward for me, and I did not need to copy or cheat any part of the source code. AI was utilized only to assist me in choosing and selecting the color palettes for the CSS layout. All primary development, coding, and design layouts were made entirely by myself based on my academic studies.
  
 ![Diva Store](screenshot-DivaStore.png)
+![Accessories](accessories.png)
+![Checkout](checkout.png)
+![FAQ](faq.png)
+![Makeup](makeup.png)
+![Profile](profile.png)
+![Wishlist](wishlist.png)
 
